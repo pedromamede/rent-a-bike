@@ -1,42 +1,29 @@
-<%= form_with(model: aluguel) do |form| %>
-  <% if aluguel.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(aluguel.errors.count, "error") %> prohibited this aluguel from being saved:</h2>
+<% if @aluguel.errors.any? %>
+  <div class='alert alert-danger'>
+      <%= @aluguel.errors.full_messages.join(";") %>
+  </div>
+<% end %>
 
-      <ul>
-        <% aluguel.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :bike_id, style: "display: block" %>
-    <%= form.text_field :bike_id %>
+<%= form_with(model: @aluguel, url: alugueis_path, class: 'bootstrap-form') do |form| %>
+  <div class="mb-3">
+    <%= form.label 'Escolha sua Bike', class: 'form-label' %>
+    <%= form.collection_select :bike_id, Bike.all, :id, :modelo, {}, {class: 'form-select'} %>
   </div>
 
-  <div>
-    <%= form.label :ponto_id, style: "display: block" %>
-    <%= form.text_field :ponto_id %>
+  <div class="mb-3">
+    <%= form.label 'Onde vai retirar?', class: 'form-label' %>
+    <%= form.collection_select :ponto_id, Ponto.all, :id, :nome, {}, {class: 'form-select'} %>
   </div>
 
-  <div>
-    <%= form.label :hora_retirada, style: "display: block" %>
+  <div class="mb-3">
+    <%= form.label "Quando vai retirar?", class: 'form-label' %>
     <%= form.datetime_field :hora_retirada %>
   </div>
 
-  <div>
-    <%= form.label :hora_devolucao, style: "display: block" %>
-    <%= form.datetime_field :hora_devolucao %>
+  <div class="mb-3">
+    <%= form.label :forma_pagamento %>
+    <%= form.collection_select(:forma_pagamento, ["Cartão de crédito", "Cartão de débito", "Dinheiro", "Pix"], :to_s , :to_s, {}, { class: 'form-select' }) %>
   </div>
 
-  <div>
-    <%= form.label :forma_pagamento, style: "display: block" %>
-    <%= form.text_field :forma_pagamento %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <%= form.submit 'Alugar Bike!', class: 'btn btn-primary' %>
 <% end %>

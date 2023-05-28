@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<div class='container'>
+  <h2> Seu histórico de alugueis </h2>
 
-<h1>Alugueis</h1>
-
-<div id="alugueis">
-  <% @alugueis.each do |aluguel| %>
-    <%= render aluguel %>
-    <p>
-      <%= link_to "Show this aluguel", aluguel %>
-    </p>
-  <% end %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Bike</th>
+        <th scope="col">Ponto</th>
+        <th scope="col">Hora Retirada</th>
+        <th scope="col">Forma de Pagamento</th>
+        <th scope="col">Devolvido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @alugueis.each do |aluguel| %>
+        <tr>
+          <td><%= aluguel.bike.marca+" - "+aluguel.bike.modelo %></td>
+          <td><%= aluguel.ponto.nome %></td>
+          <td><%= aluguel.hora_retirada.strftime("%d/%m/%Y %H:%M") %></td>
+          <td><%= aluguel.forma_pagamento %></td>
+          <td>Não</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New aluguel", new_aluguel_path %>

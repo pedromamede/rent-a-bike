@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_28_203946) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_28_212411) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "alugueis", force: :cascade do |t|
+    t.bigint "bike_id", null: false
+    t.bigint "ponto_id", null: false
+    t.datetime "hora_retirada"
+    t.datetime "hora_devolucao"
+    t.string "forma_pagamento"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bike_id"], name: "index_alugueis_on_bike_id"
+    t.index ["ponto_id"], name: "index_alugueis_on_ponto_id"
+  end
 
   create_table "bikes", force: :cascade do |t|
     t.string "modelo"
@@ -34,4 +46,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_28_203946) do
     t.string "nome"
   end
 
+  add_foreign_key "alugueis", "bikes"
+  add_foreign_key "alugueis", "pontos"
 end

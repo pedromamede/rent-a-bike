@@ -12,17 +12,17 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <img src="/logo.png" alt="Logo" class="navbar-brand" style='border-radius: 20px;'>
+        <%= link_to(image_tag("/logo.png"), root_path) %>
         <%= link_to 'Catálogo de Bikes', root_path, class: 'navbar-brand' %>
         <%= link_to 'Pontos de retirada e devolução', pontos_path, class: 'navbar-brand' %>
-        <%= link_to 'Meu histórico', "#", class: 'navbar-brand' %>
+        <%= link_to 'Meu histórico', alugueis_path, class: 'navbar-brand' %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <%= link_to 'Login', "#", class: 'nav-link' %>
+              <%= link_to 'Login', "#", class: 'nav-link', onClick: 'alert("Em breve ;)")' %>
             </li>
           </ul>
         </div>

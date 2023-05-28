@@ -36,14 +36,14 @@ RSpec.describe "/alugueis", type: :request do
   describe "GET /show" do
     it "renders a successful response" do
       aluguel = Aluguel.create! valid_attributes
-      get aluguel_url(aluguel)
+      get aluguei_url(aluguel)
       expect(response).to be_successful
     end
   end
 
   describe "GET /new" do
     it "renders a successful response" do
-      get new_aluguel_url
+      get new_aluguei_url
       expect(response).to be_successful
     end
   end
@@ -51,7 +51,7 @@ RSpec.describe "/alugueis", type: :request do
   describe "GET /edit" do
     it "renders a successful response" do
       aluguel = Aluguel.create! valid_attributes
-      get edit_aluguel_url(aluguel)
+      get edit_aluguei_url(aluguel)
       expect(response).to be_successful
     end
   end
@@ -66,7 +66,7 @@ RSpec.describe "/alugueis", type: :request do
 
       it "redirects to the created aluguel" do
         post alugueis_url, params: { aluguel: valid_attributes }
-        expect(response).to redirect_to(aluguel_url(Aluguel.last))
+        expect(response).to redirect_to(aluguei_url(Aluguel.last))
       end
     end
 
@@ -94,16 +94,16 @@ RSpec.describe "/alugueis", type: :request do
 
       it "updates the requested aluguel" do
         aluguel = Aluguel.create! valid_attributes
-        patch aluguel_url(aluguel), params: { aluguel: new_attributes }
+        patch aluguei_url(aluguel), params: { aluguel: new_attributes }
         aluguel.reload
         skip("Add assertions for updated state")
       end
 
       it "redirects to the aluguel" do
         aluguel = Aluguel.create! valid_attributes
-        patch aluguel_url(aluguel), params: { aluguel: new_attributes }
+        patch aluguei_url(aluguel), params: { aluguel: new_attributes }
         aluguel.reload
-        expect(response).to redirect_to(aluguel_url(aluguel))
+        expect(response).to redirect_to(aluguei_url(aluguel))
       end
     end
 
@@ -111,7 +111,7 @@ RSpec.describe "/alugueis", type: :request do
     
       it "renders a response with 422 status (i.e. to display the 'edit' template)" do
         aluguel = Aluguel.create! valid_attributes
-        patch aluguel_url(aluguel), params: { aluguel: invalid_attributes }
+        patch aluguei_url(aluguel), params: { aluguel: invalid_attributes }
         expect(response).to have_http_status(:unprocessable_entity)
       end
     
@@ -122,13 +122,13 @@ RSpec.describe "/alugueis", type: :request do
     it "destroys the requested aluguel" do
       aluguel = Aluguel.create! valid_attributes
       expect {
-        delete aluguel_url(aluguel)
+        delete aluguei_url(aluguel)
       }.to change(Aluguel, :count).by(-1)
     end
 
     it "redirects to the alugueis list" do
       aluguel = Aluguel.create! valid_attributes
-      delete aluguel_url(aluguel)
+      delete aluguei_url(aluguel)
       expect(response).to redirect_to(alugueis_url)
     end
   end

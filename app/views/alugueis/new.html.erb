@@ -1,9 +1,14 @@
-<h1>New aluguel</h1>
+<div class='container'>
 
-<%= render "form", aluguel: @aluguel %>
+  <h2>
+    Falta pouco para alugar sua Bike!
+  </h2>
 
-<br>
+  <%= render "form", aluguel: @aluguel %>
 
-<div>
-  <%= link_to "Back to alugueis", alugueis_path %>
+  <br>
+
+  <div>
+    <%= link_to "Voltar ao Catálogo de Bikes", root_path %>
+  </div>
 </div>

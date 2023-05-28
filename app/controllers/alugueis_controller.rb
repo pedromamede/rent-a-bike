@@ -1,5 +1,5 @@
 class AlugueisController < ApplicationController
-  before_action :set_aluguel, only: %i[ show edit update destroy ]
+  before_action :set_aluguei, only: %i[ show edit update destroy ]
 
   # GET /alugueis or /alugueis.json
   def index
@@ -25,7 +25,7 @@ class AlugueisController < ApplicationController
 
     respond_to do |format|
       if @aluguel.save
-        format.html { redirect_to aluguel_url(@aluguel), notice: "Aluguel was successfully created." }
+        format.html { redirect_to bikes_path, notice: "Aluguel confirmado! Pode ir retirar sua Bike no horário escolhido!" }
         format.json { render :show, status: :created, location: @aluguel }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class AlugueisController < ApplicationController
   def update
     respond_to do |format|
       if @aluguel.update(aluguel_params)
-        format.html { redirect_to aluguel_url(@aluguel), notice: "Aluguel was successfully updated." }
+        format.html { redirect_to aluguei_url(@aluguel), notice: "Aluguel was successfully updated." }
         format.json { render :show, status: :ok, location: @aluguel }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -59,7 +59,7 @@ class AlugueisController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_aluguel
+    def set_aluguei
       @aluguel = Aluguel.find(params[:id])
     end
 
