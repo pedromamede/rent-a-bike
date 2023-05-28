@@ -1,0 +1,19 @@
+<div class="row row-cols-1 row-cols-md-3">
+  <% @bikes.each do |bike| %>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="<%= bike.image_url %>" class="card-img-top" alt="Bike Image" style='height: 250px'>
+        <div class="card-body">
+          <h5 class="card-title">Marca: <%= bike.marca %></h5>
+          <p class="card-text">Modelo: <%= bike.modelo %></p>
+          <p class="card-text"><%= truncate(bike.descricao, length: 50) %></p>
+          <p class="card-text"><%= number_to_currency(bike.valor_aluguel, unit: 'R$', precision: 2) %> por hora</p>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Alugar agora!', '#', class: 'btn btn-primary' %>
+          <%= link_to 'Ver detalhes da bike', bike_path(bike), class: 'btn btn-secondary' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

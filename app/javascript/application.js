@@ -3,5 +3,6 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "trix"
 import "@rails/actiontext"
+import 'bootstrap'
 
 console.log('Hello World from application.js');

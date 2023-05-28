@@ -1,0 +1,26 @@
+<div id="<%= dom_id bike %>">
+  <p>
+    <strong>Modelo:</strong>
+    <%= bike.modelo %>
+  </p>
+
+  <p>
+    <strong>Marca:</strong>
+    <%= bike.marca %>
+  </p>
+
+  <p>
+    <strong>Descricao:</strong>
+    <%= bike.descricao %>
+  </p>
+
+  <p>
+    <strong>Valor aluguel:</strong>
+    <%= number_to_currency(bike.valor_aluguel, unit: "R$", precision: 2) %>
+  </p>
+
+  <p>
+    <%= link_to "Voltar ao catálogo", bikes_path %>
+  </p>
+
+</div>

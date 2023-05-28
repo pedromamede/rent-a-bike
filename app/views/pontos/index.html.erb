@@ -1,0 +1,15 @@
+<div class="row row-cols-1 row-cols-md-3">
+  <% @pontos.each do |ponto| %>
+    <div class="col mb-4">
+      <div class="card">
+        <img src="<%= ponto.image_url %>" class="card-img-top" alt="ponto Image" style='height: 250px'>
+        <div class="card-body">
+          <h5 class="card-title"><%= ponto.nome %></h5>
+          <p class="card-text"><%= ponto.endereco %></p>
+          <p class="card-text">Horário: <%= ponto.horario %></p>
+          <p class="card-text"> <a href="<%=ponto.link_maps%>" target="_blank">Veja no Google Maps</a></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

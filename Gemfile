@@ -32,6 +32,10 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", "~> 5.0"
 
+gem 'bootstrap', '~> 5'
+
+gem 'mini_racer'
+
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
